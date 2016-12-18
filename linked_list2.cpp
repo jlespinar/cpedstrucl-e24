@@ -11,80 +11,68 @@ public:
     LinkedList(){
         head = NULL; // set head to NULL
     }
-
-
     void addValue(int val){
-        Node *n = new Node();   
+		Node *n = new Node();   
         n->x = val;             
-        n->next = head;              
+        n->next = head;   
+		           
         head = n;              
     }
-
-    int popValue(){
+    int popValue(){  
         Node *n = head;
+		if(head==NULL)
+		    {
+		        cout<<"Empty";
+		    }
         int ret = n->x;
-
         head = head->next;
         delete n;
         return ret;
     }
-    
-	void displayValue(){
-			Node *temp;
-			temp = head;
-			while(head != NULL){
-			Node *n = head;
-			Node *x = temp;
-			int ret = n->x;
-			head = head->next;
-			cout << ret;
-	}
-	}
-    
-     
+    void displayValue(){
+	Node *n=head;
+	cout<<"Number: ";
+	while(n != NULL){
+	        cout << n -> x <<" ";
+	        n=n->next;
+	} 
+    }
 private:
     Node *head; 
 };
-
 	void menu(){
-    	cout << "\nWhat would you like to do?: \n";
-		cout << "1: Insert into linked list \n";
-		cout << "2: Pop \n";
-		cout << "3: Exit \n";
-		cout << "4. Display\n";
-	}
+		cout << "\n============================" << endl;
+		cout << "What would you like to do?" << endl;;
+		cout << "1: Insert into linked list" << endl;
+		cout << "2: Pop" << endl;
+		cout << "3: Exit" << endl;
+		cout << "4. Display" << endl;
+		cout << "============================" << endl;}
 	
 int main() {
 	int choice, val;
     LinkedList list;
-  	
  	while (1){
 	menu();
-	cout << "Choice: ";
+	cout << "\nChoice: ";
 	cin >> choice;
 		switch (choice)
-	    {
-	    	case 1: {
-	    		cout << "Enter number: ";
+	    {	case 1: {
+	    		cout << "\nEnter a number: ";
 	    		cin >>val;
 	    		list.addValue(val);
-				  break;
-				}   			
+				break;}   			
 	    	case 2: {
-	    		cout << list.popValue();
-				  break;
-			}
-	      case 3:{
+	    		cout << "Number: " << list.popValue() << endl;
+				break;}
+	      	case 3:{
 	      		 exit(1);
-	      		 default: break;
-			  }
-		    case 4:{
-				list.displayValue();
-				break;
-			}
-
+	      		 break;}
+		case 4:{
+			list.displayValue();
+			break;	
+		default: cout << "\nInvalid choice!\n";}
 		}
-		}
-    return 0;
-
+	}
+return 0;
 }

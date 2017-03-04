@@ -1,9 +1,9 @@
 #include<iostream>
 using namespace std;
 int main(){
-	int A[]={6, 5, 3, 1, 8, 7, 2, 4};
-	int temp[8];
-	int n=8, z=1, l1, l2, h1, h2, i, j, k, size;
+	int A[]={35, 10, 55, 20, 5};
+	int temp[5];
+	int n=5, y=1, l1, l2, h1, h2, i, j, k, size;
 	
 	cout<<"Array: ";
 	for(int k=0; k<n; k++)
@@ -37,7 +37,8 @@ int main(){
 			temp[k++]=A[i];
 		for(i=0; i<n; i++)
 			A[i]=temp[i];
-		cout<<"Pass "<<z++<<": ";
+
+		cout<<"Pass "<<y++<<": ";
 		for (int k=0; k<n; k++)
 			cout<<A[k]<<" ";
 		cout<<endl;
